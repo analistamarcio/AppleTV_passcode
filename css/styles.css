@@ -1,0 +1,70 @@
+body {
+	background-color: black;
+}
+
+#remote_control_stage {
+	position: absolute;
+	top: 10px;
+	/*left: 0;*/
+	right: 10px;
+	z-index: 1;
+	width: 86px;
+	height: 343px;
+}
+
+#rc_top {
+	position: relative;
+	top: 0;
+	width: 86px;
+	height: 46px;
+	z-index: 2;
+	background-image: url("../images/AppleTV_RC_Top.png");
+	background-color: white;
+}
+
+#rc_butons {
+	position: relative;
+	top: 0;
+	width: 86px;
+	height: 51px;
+	z-index: 3;
+	background-image: url("../images/AppleTV_RC_bt_stby.png");
+	background-color: white;
+}
+
+#left_button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 85px;
+	height: 51px;
+	cursor: pointer;
+}
+
+#select_button {
+	position: absolute;
+	top: 0;
+	left: 25px;
+	width: 35px;
+	height: 51px;
+	cursor: pointer;
+}
+
+#right_button {
+	position: absolute;
+	top: 0;
+	left: 60px;
+	width: 85px;
+	height: 51px;
+	cursor: pointer;
+}
+
+#rc_bottom {
+	position: relative;
+	top: 0;
+	width: 86px;
+	height: 246px;
+	z-index: 4;
+	background-image: url("../images/AppleTV_RC_Bottom.png");
+	background-color: white;
+}
