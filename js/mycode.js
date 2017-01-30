@@ -14,7 +14,7 @@ function ChangeBgImg(imgIndex) {
 	// change images z-index (show/hide image as hover)
 	for (var i = 0; i < 4; i++) {
 		image = document.getElementById("img" + i.toString());
-		if (i == imgIndex - 1) {
+		if (i == imgIndex) {
 			image.style.zIndex = 6;
 		} else {
 			image.style.zIndex = i + 2;
@@ -23,9 +23,9 @@ function ChangeBgImg(imgIndex) {
 }
 
 function ButtonPressed(e) {
-	if (e == 1) { // Left button click
+	if (e == 0) { // Left button click
 		console.log("Left button");
-	} else if (e == 2) { // Select button click
+	} else if (e == 1) { // Select button click
 		console.log("Select button");
 	} else { // Right button click
 		console.log("Right button");
