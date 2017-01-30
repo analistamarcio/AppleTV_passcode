@@ -7,19 +7,26 @@
     <meta name='author' content='Marcio Nunes Ferreira - https://www.linkedin.com/in/analistamarcio' />
 	<title>Apple TV passcode</title>
 </head>
+<link rel='stylesheet' href='css/styles.css' type='text/css' />
 <script src='js/jquery.min.js'></script>
 <script src='js/mycode.js'></script>
-<link rel='stylesheet' href='css/styles.css' type='text/css' />
+
 <body>
 
 <div class="content">
 
 	<div id="remote_control_stage">
-		<div id="rc_top">
+		<div id="rc_top" onmousedown="MoveRC(1)" onmouseleave="MoveRC(0)" onmouseup="MoveRC(0)" onmousemove="MoveRC(-1)">
 			
 		</div>
 
 		<div id="rc_butons">
+
+			<!-- Remote control buttons -->
+			<div class="imgButton"></div>
+			<div class="imgButton"></div>
+			<div class="imgButton"></div>
+			<div class="imgButton"></div>
 
 			<!-- Left canvas to left button of the remote control events -->
 			<div id="canvas_bt_left" onmouseover="ChangeBgImg(0)" onmouseleave="ChangeBgImg(3)" onmousedown="ButtonPressed(0)">
@@ -36,21 +43,26 @@
 				
 			</div>
 
-			<!-- Remote control buttons -->
-			<div class="imgButton"></div>
-			<div class="imgButton"></div>
-			<div class="imgButton"></div>
-			<div class="imgButton"></div>
-
 		</div>
 
-		<div id="rc_bottom">
+		<div id="rc_bottom" onmousedown="MoveRC(1)" onmouseleave="MoveRC(0)" onmouseup="MoveRC(0)" onmousemove="MoveRC(-1)">
 			
 		</div>
 		
 	</div>
 
 </div>
+
+<script type='text/javascript'>
+		// initialize global variables
+		var mode = false; // false = waiting click, true = clicked (mouse down / able to move Remote Control)
+		var brdX = 0; // distance between rc left border and x coord clicked
+		var brdY = 0; // distance between rc top border and x coord clicked
+		var rcX1 = remote_control_stage.offsetLeft;
+		var rcX2 = rcX1 + remote_control_stage.offsetWidth;
+		var rcY1 = remote_control_stage.offsetTop;
+		var rcY2 = rcY1 + remote_control_stage.offsetHeight;
+</script>
 
 </body>
 </html>

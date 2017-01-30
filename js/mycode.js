@@ -31,3 +31,30 @@ function ButtonPressed(e) {
 		console.log("Right button");
 	}
 }
+
+function MoveRC(e) {
+	if (e == 1) {
+		// rc move start
+		mode = true;
+		brdX = event.clientX - rcX1;
+		brdY = event.clientY - rcY1;
+	} else if (e == 0) {
+		// rc move end
+		mode = false;
+	} else {
+		// rc move (changing coords)
+		if (mode) {
+			rcX1 = event.clientX - brdX;
+			remote_control_stage.style.left = rcX1.toString() + "px";
+			rcY1 = event.clientY - brdY;
+			remote_control_stage.style.top = rcY1.toString() + "px";
+			// console.log("rcX1 = " + rcX1 + " rc_posX = " + remote_control_stage.style.left);
+		}
+	}
+}
+
+
+
+
+
+
