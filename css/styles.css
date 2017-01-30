@@ -7,7 +7,7 @@ body {
 	top: 10px;
 	/*left: 0;*/
 	right: 10px;
-	z-index: 1;
+	z-index: 0;
 	width: 86px;
 	height: 343px;
 }
@@ -17,8 +17,9 @@ body {
 	top: 0;
 	width: 86px;
 	height: 46px;
-	z-index: 2;
+	z-index: 1;
 	background-image: url("../images/AppleTV_RC_Top.png");
+	background-repeat: no-repeat;
 	background-color: white;
 }
 
@@ -27,36 +28,48 @@ body {
 	top: 0;
 	width: 86px;
 	height: 51px;
-	z-index: 3;
-	background-image: url("../images/AppleTV_RC_bt_stby.png");
+	z-index: 2;
 	background-color: white;
 }
 
-#left_button {
+.imgButton {
+	position: absolute;
+	top: 0;
+	width: 86px;
+	height: 51px;
+	z-index: 3;
+	background-repeat: no-repeat;
+	background-color: white;
+}
+
+#canvas_bt_left {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 85px;
+	width: 25px;
 	height: 51px;
 	cursor: pointer;
+	z-index: 7;
 }
 
-#select_button {
+#canvas_bt_select {
 	position: absolute;
 	top: 0;
 	left: 25px;
 	width: 35px;
 	height: 51px;
 	cursor: pointer;
+	z-index: 8;
 }
 
-#right_button {
+#canvas_bt_right {
 	position: absolute;
 	top: 0;
-	left: 60px;
-	width: 85px;
+	right: 0;
+	width: 26px;
 	height: 51px;
 	cursor: pointer;
+	z-index: 9;
 }
 
 #rc_bottom {
@@ -64,7 +77,8 @@ body {
 	top: 0;
 	width: 86px;
 	height: 246px;
-	z-index: 4;
+	z-index: 10;
 	background-image: url("../images/AppleTV_RC_Bottom.png");
+	background-repeat: no-repeat;
 	background-color: white;
 }

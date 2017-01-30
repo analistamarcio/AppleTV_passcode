@@ -1,12 +1,24 @@
-function ChangeBgImg(e) {
-	if (e == 1) { // Left button
-		document.getElementById("rc_butons").style.backgroundImage = "url('images/AppleTV_RC_bt_Left.png')";
-	} else if (e == 2) { // Select button
-		document.getElementById("rc_butons").style.backgroundImage = "url('images/AppleTV_RC_bt_Select.png')";
-	} else if (e == 3) { // Right button
-		document.getElementById("rc_butons").style.backgroundImage = "url('images/AppleTV_RC_bt_Right.png')";
-	} else { // Standby button (default)
-		document.getElementById("rc_butons").style.backgroundImage = "url('images/AppleTV_RC_bt_stby.png')";
+// load and define the remote control image buttons
+$(window).load(function() {
+	var imgButtonDivs = document.getElementsByClassName("imgButton");
+	for (var i = 0; i < 4; i++){
+		imgButtonDivs[i].id = "img" + i.toString();
+	}
+	img0.style.backgroundImage = 'url("images/AppleTV_RC_bt_Left.png")'
+	img1.style.backgroundImage = 'url("images/AppleTV_RC_bt_Select.png")'
+	img2.style.backgroundImage = 'url("images/AppleTV_RC_bt_Right.png")'
+	img3.style.backgroundImage = 'url("images/AppleTV_RC_bt_stby.png")'
+});
+
+function ChangeBgImg(imgIndex) {
+	// change images z-index (show/hide image as hover)
+	for (var i = 0; i < 4; i++) {
+		image = document.getElementById("img" + i.toString());
+		if (i == imgIndex - 1) {
+			image.style.zIndex = 6;
+		} else {
+			image.style.zIndex = i + 2;
+		}
 	}
 }
 
