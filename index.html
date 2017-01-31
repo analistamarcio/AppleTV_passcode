@@ -16,7 +16,7 @@
 <div class="content">
 
 	<div id="remote_control_stage">
-		<div id="rc_top" onmousedown="MoveRC(1)" onmouseleave="MoveRC(0)" onmouseup="MoveRC(0)" onmousemove="MoveRC(-1)">
+		<div id="rc_top" onmousedown="MoveRC(1)" onmouseup="MoveRC(0)" onmousemove="MoveRC(-1)">
 			
 		</div>
 
@@ -45,7 +45,7 @@
 
 		</div>
 
-		<div id="rc_bottom" onmousedown="MoveRC(1)" onmouseleave="MoveRC(0)" onmouseup="MoveRC(0)" onmousemove="MoveRC(-1)">
+		<div id="rc_bottom" onmousedown="MoveRC(1)" onmouseup="MoveRC(0)" onmousemove="MoveRC(-1)">
 			
 		</div>
 		
@@ -54,6 +54,7 @@
 </div>
 
 <script type='text/javascript'>
+
 		// initialize global variables
 		var mode = false; // false = waiting click, true = clicked (mouse down / able to move Remote Control)
 		var brdX = 0; // distance between rc left border and x coord clicked
@@ -62,6 +63,11 @@
 		var rcX2 = rcX1 + remote_control_stage.offsetWidth;
 		var rcY1 = remote_control_stage.offsetTop;
 		var rcY2 = rcY1 + remote_control_stage.offsetHeight;
+
+		$(document).mousemove(function(e) {
+			MoveRC(e);
+		});
+
 </script>
 
 </body>

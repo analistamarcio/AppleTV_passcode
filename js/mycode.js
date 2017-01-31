@@ -8,6 +8,7 @@ $(window).load(function() {
 	img1.style.backgroundImage = 'url("images/AppleTV_RC_bt_Select.png")'
 	img2.style.backgroundImage = 'url("images/AppleTV_RC_bt_Right.png")'
 	img3.style.backgroundImage = 'url("images/AppleTV_RC_bt_stby.png")'
+
 });
 
 function ChangeBgImg(imgIndex) {
@@ -48,7 +49,6 @@ function MoveRC(e) {
 			remote_control_stage.style.left = rcX1.toString() + "px";
 			rcY1 = event.clientY - brdY;
 			remote_control_stage.style.top = rcY1.toString() + "px";
-			// console.log("rcX1 = " + rcX1 + " rc_posX = " + remote_control_stage.style.left);
 		}
 	}
 }
