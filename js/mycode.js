@@ -39,15 +39,21 @@ function MoveRC(e) {
 		mode = true;
 		brdX = event.clientX - rcX1;
 		brdY = event.clientY - rcY1;
-	} else if (e == 0) {
-		// rc move end
-		mode = false;
 	} else {
 		// rc move (changing coords)
 		if (mode) {
-			rcX1 = event.clientX - brdX;
+			// calculate new coords (X)
+			if ((event.clientX - brdX) > 0 && (event.clientX - brdX + remote_control_stage.offsetWidth) < window.innerWidth) {
+				rcX1 = event.clientX - brdX;
+				rcX2 = rcX1 + remote_control_stage.offsetWidth;
+			}
+			// calculate new coords (Y)
+			if ((event.clientY - brdY) > 0 && (event.clientY - brdY + remote_control_stage.offsetHeight) < window.innerHeight) {
+				rcY1 = event.clientY - brdY;
+				rcY2 = rcY1 + remote_control_stage.offsetHeight;
+			}
+			// move remote control (X and/or Y)
 			remote_control_stage.style.left = rcX1.toString() + "px";
-			rcY1 = event.clientY - brdY;
 			remote_control_stage.style.top = rcY1.toString() + "px";
 		}
 	}
