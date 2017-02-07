@@ -4,10 +4,12 @@ $(window).load(function() {
 	for (var i = 0; i < 4; i++){
 		imgButtonDivs[i].id = "img" + i.toString();
 	}
-	img0.style.backgroundImage = 'url("images/AppleTV_RC_bt_Left.png")'
-	img1.style.backgroundImage = 'url("images/AppleTV_RC_bt_Select.png")'
-	img2.style.backgroundImage = 'url("images/AppleTV_RC_bt_Right.png")'
-	img3.style.backgroundImage = 'url("images/AppleTV_RC_bt_stby.png")'
+	img0.style.backgroundImage = 'url("images/AppleTV_RC_bt_Left.png")';
+	img1.style.backgroundImage = 'url("images/AppleTV_RC_bt_Select.png")';
+	img2.style.backgroundImage = 'url("images/AppleTV_RC_bt_Right.png")';
+	img3.style.backgroundImage = 'url("images/AppleTV_RC_bt_stby.png")';
+
+	Shuffle();
 
 });
 
@@ -59,8 +61,31 @@ function MoveRC(e) {
 	}
 }
 
+function Shuffle(){
+	stringPair = [];
+	var arrIndex = 0;
+	var arrShuf = [];
 
+	// Array initialization with digits from 0 to 9
+	for (var i = 0; i < 10; i++) {
+		numArray[i] = i;
+	}
 
+	// Generate a shuffle array with elements of numArray
+	for (var i = 0; i < 10; i++) {
+		arrIndex = Math.floor((Math.random() * numArray.length));
+		arrShuf[i] = numArray[arrIndex];
+		numArray.splice(arrIndex,1);
+	}
 
+	// Generate an array with digits pairs (sorted pairs)
+	for (var i = 0; i < 10; i = i + 2) {
+		arrShuf[i] > arrShuf[i + 1] ? (stringPair[stringPair.length] = arrShuf[i + 1], stringPair[stringPair.length] = arrShuf[i]) : (stringPair[stringPair.length] = arrShuf[i], stringPair[stringPair.length] = arrShuf[i + 1])
+	}
+}
+
+function PrintDigits() {
+	
+}
 
 

@@ -2,6 +2,11 @@ body {
 	background-color: black;
 }
 
+div {
+	color: white;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
 #remote_control_stage {
 	position: absolute;
 	top: 10px;

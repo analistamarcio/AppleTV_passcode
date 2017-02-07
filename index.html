@@ -15,6 +15,36 @@
 
 <div class="content">
 
+	<div class="passcode-stage">
+
+		<div class="passcode-title">Enter Passcode</div>
+
+		<div class="passcode-pair">
+			<div id="pcPair1">1 - 5</div>
+		</div>
+
+		<div class="passcode-pair">
+			<div id="pcPair2">0 - 6</div>
+		</div>
+
+		<div class="passcode-pair">
+			<div id="pcPair3">2 - 7</div>
+		</div>
+
+		<div class="passcode-pair">
+			<div id="pcPair4">3 - 9</div>
+		</div>
+
+		<div class="passcode-pair">
+			<div id="pcPair5">4 - 8</div>
+		</div>
+
+		<div class="passcode-pair">
+			<div id="pcSubmit">DONE</div>
+		</div>
+
+	</div>
+
 	<div id="remote_control_stage">
 		<div id="rc_top" onmousedown="MoveRC(1)" onmousemove="MoveRC(0)">
 			
@@ -63,6 +93,9 @@
 		var rcX2 = rcX1 + remote_control_stage.offsetWidth;
 		var rcY1 = remote_control_stage.offsetTop;
 		var rcY2 = rcY1 + remote_control_stage.offsetHeight;
+
+		var numArray = [];
+		var stringPair = [];
 
 		$(document).mousemove(function(e) {
 			MoveRC(e);
