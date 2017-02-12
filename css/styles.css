@@ -5,13 +5,33 @@ body {
 	-moz-user-select: none;    
 	-ms-user-select: none;      
 	user-select: none;
+	cursor: default;
+}
+
+a:link, a:visited {
+	font-size: 0.75em;
+	text-decoration: none;
+	color: rgb(26,26,26);
+	letter-spacing: 2px;
+}
+
+a:hover {
+	text-decoration: none;
+	color: rgb(126,126,126);
+	cursor: default;
 }
 
 div {
 	display: block;
 	text-align: center;
 	color: white;
-	/*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
+}
+
+.current-passcode {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	color: rgb(56,56,56);
 }
 
 .passcode-stage {
@@ -38,21 +58,10 @@ div {
 	font-size: 2em;
 	width: 120px;
 	height: 120px;
-	border: 5px solid blue;
+	border: 5px solid rgb(36,36,36);
 	border-radius: 10px;
 	padding-top: auto;
 	padding-bottom: auto;
-}
-
-.pcPair1 {
-	border-style: solid;
-}
-
-.passcode-submit {
-	position: relative;
-	right: 30px;
-	padding-top: 46px;
-	font-size: 1.2em;
 }
 
 .hash {
@@ -63,10 +72,18 @@ div {
 	letter-spacing: 20px;
 }
 
+.result {
+	display: none;
+	position: relative;
+	right: 120px;
+	font-size: 0.8em;
+	line-height: 25px;
+}
+
 #remote_control_stage {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 80px;
+	right: 50px;
 	z-index: 0;
 	width: 86px;
 	height: 343px;

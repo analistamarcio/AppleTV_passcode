@@ -17,6 +17,8 @@
 
 <div class="content col-lg-12 col-md-12 col-sm-12">
 
+	<div class="current-passcode">Current passcode = 4856</div>
+
 	<div class="passcode-stage  col-lg-12 col-md-12 col-sm-12">
 
 		<div class="passcode-title  col-lg-12 col-md-12 col-sm-12">Enter Passcode</div>
@@ -34,11 +36,11 @@
 			<div class="pcPair5 col-lg-1 col-md-1 col-sm-1">4 - 8</div>
 		</div>
 
-		<div class="passcode-submit  col-lg-1 col-md-1 col-sm-1">
-			<div id="pcSubmit">DONE</div>
-		</div>
-
 		<div class="hash col-lg-12 col-md-12 col-sm-12">####</div>
+		<div class="result col-lg-12 col-md-12 col-sm-12">
+			<div class="btnTryAgain">Clique here to try again</div>
+			<a href="https://www.linkedin.com/in/analistamarcio" target="_blank">linkedin.com/in/analistamarcio</a>
+		</div>
 
 	</div>
 
@@ -91,9 +93,11 @@
 		var rcY1 = remote_control_stage.offsetTop;
 		var rcY2 = rcY1 + remote_control_stage.offsetHeight;
 
-		var numArray = [];
-		var stringPair = [];
 		var currentPass = "4856";
+		var stringPair = [];
+		var currPasscodeDig = 0; // passcode digit enter (1 - 4)
+		var currDigPair = 0; // digit pair highlighted (1 - 5)
+		var result = 1; // 1 = correct passcode, 0 = wrong passcode
 
 		$(document).mousemove(function(e) {
 			MoveRC(e);
@@ -101,6 +105,18 @@
 
 		$(document).mouseup(function(e) {
 			mode = false;
+		});
+
+		$('.current-passcode').mousemove(function(){
+			$('.current-passcode').css("color", "white");
+		});
+
+		$('.current-passcode').mouseout(function(){
+			$('.current-passcode').css("color", "rgb(56,56,56)");
+		});
+
+		$('.btnTryAgain').mousedown(function(){
+			NewPasscodeRequire();
 		});
 
 </script>

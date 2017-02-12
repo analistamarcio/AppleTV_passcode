@@ -9,9 +9,22 @@ $(window).load(function() {
 	img2.style.backgroundImage = 'url("images/AppleTV_RC_bt_Right.png")';
 	img3.style.backgroundImage = 'url("images/AppleTV_RC_bt_stby.png")';
 
-	Shuffle();
+	NewPasscodeRequire();
 
 });
+
+function NewPasscodeRequire() {
+	// request passcode initialization
+	Shuffle();
+	currPasscodeDig = 0;
+	result = 1;
+	document.getElementsByClassName("pcPair" + (currDigPair + 1).toString() )[0].style.borderColor = "rgb(36,36,36)";
+	currDigPair = 0;
+	document.getElementsByClassName("pcPair" + (currDigPair + 1).toString() )[0].style.borderColor = "blue";
+	document.getElementsByClassName("hash")[0].innerText = "";
+	document.getElementsByClassName("hash")[0].style.color = "white";
+	document.getElementsByClassName("result")[0].style.display = "none";
+}
 
 function ChangeBgImg(imgIndex) {
 	// change images z-index (show/hide image as hover)
@@ -26,12 +39,45 @@ function ChangeBgImg(imgIndex) {
 }
 
 function ButtonPressed(e) {
+	var hashTag = "";
 	if (e == 0) { // Left button click
-		console.log("Left button");
+		if (currDigPair > 0) {
+			document.getElementsByClassName("pcPair" + (currDigPair + 1).toString() )[0].style.borderColor = "rgb(36,36,36)";
+			currDigPair --;
+			document.getElementsByClassName("pcPair" + (currDigPair + 1).toString() )[0].style.borderColor = "blue";
+		}
 	} else if (e == 1) { // Select button click
-		console.log("Select button");
+		if (currPasscodeDig < 4) {
+			// update result var
+			if (currentPass[currPasscodeDig] == stringPair[currDigPair * 2] || currentPass[currPasscodeDig] == stringPair[currDigPair * 2 + 1]) {
+				result = result * 1;
+			} else {
+				result = result * 0;
+			}
+			// print hash simbols
+			for (i = 0; i <= currPasscodeDig; i++) {
+				hashTag = hashTag + "#";
+			}
+			document.getElementsByClassName("hash")[0].innerText = hashTag;
+			// next pascode digit
+			currPasscodeDig ++;
+			if (currPasscodeDig == 4) { // show result
+				if (result) {
+					document.getElementsByClassName("hash")[0].innerText = "CORRECT";
+					document.getElementsByClassName("hash")[0].style.color = "green";
+				} else {
+					document.getElementsByClassName("hash")[0].innerText = "INCORRECT";
+					document.getElementsByClassName("hash")[0].style.color = "red";
+				}
+				document.getElementsByClassName("result")[0].style.display = "inline";
+			}
+		}
 	} else { // Right button click
-		console.log("Right button");
+		if (currDigPair < 4) {
+			document.getElementsByClassName("pcPair" + (currDigPair + 1).toString() )[0].style.borderColor = "rgb(36,36,36)";
+			currDigPair ++;
+			document.getElementsByClassName("pcPair" + (currDigPair + 1).toString() )[0].style.borderColor = "blue";
+		}
 	}
 }
 
@@ -65,6 +111,7 @@ function Shuffle(){
 	stringPair = [];
 	var arrIndex = 0;
 	var arrShuf = [];
+	var numArray = [];
 
 	// Array initialization with digits from 0 to 9
 	for (var i = 0; i < 10; i++) {
@@ -81,11 +128,6 @@ function Shuffle(){
 	// Generate an array with digits pairs (sorted pairs)
 	for (var i = 0; i < 10; i = i + 2) {
 		arrShuf[i] > arrShuf[i + 1] ? (stringPair[stringPair.length] = arrShuf[i + 1], stringPair[stringPair.length] = arrShuf[i]) : (stringPair[stringPair.length] = arrShuf[i], stringPair[stringPair.length] = arrShuf[i + 1])
+		document.getElementsByClassName("pcPair" + ((i + 2)/2).toString() )[0].innerText = stringPair[i] + " - " + stringPair[i + 1];
 	}
 }
-
-function PrintDigits() {
-	
-}
-
-
