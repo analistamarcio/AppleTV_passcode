@@ -31,7 +31,7 @@ div {
 	text-align: left;
 	left: 5px;
 	top: 5px;
-	color: rgb(56,56,56);
+	color: rgb(96,96,96);
 }
 
 .warning {
@@ -48,14 +48,12 @@ div {
 
 .passcode-title {
 	position: relative;
-	/*right: 120px;*/
 	margin-bottom: 10px;
 	font-size: 1.5em;
 }
 
 .passcode-tip {
 	position: relative;
-	/*right: 120px;*/
 	margin-bottom: 100px;
 }
 
@@ -71,20 +69,19 @@ div {
 	padding-bottom: auto;
 }
 
-.hash {
-	position: relative;
-	/*right: 100px;*/
-	margin-top: 80px;
-	font-size: 2em;
-	letter-spacing: 20px;
-}
-
 .result {
 	display: none;
 	position: relative;
-	/*right: 120px;*/
 	font-size: 0.8em;
 	line-height: 25px;
+}
+
+.hash {
+	position: relative;
+	text-align: center;
+	margin-top: 80px;
+	font-size: 4em;
+	letter-spacing: 15px;
 }
 
 #remote_control_stage {

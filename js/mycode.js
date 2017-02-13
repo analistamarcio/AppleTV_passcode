@@ -24,6 +24,7 @@ function NewPasscodeRequire() {
 	document.getElementsByClassName("hash")[0].innerText = "";
 	document.getElementsByClassName("hash")[0].style.color = "white";
 	document.getElementsByClassName("result")[0].style.display = "none";
+	document.getElementsByClassName("hash")[0].style.fontSize = "4em";
 }
 
 function ChangeBgImg(imgIndex) {
@@ -56,7 +57,7 @@ function ButtonPressed(e) {
 			}
 			// print hash simbols
 			for (i = 0; i <= currPasscodeDig; i++) {
-				hashTag = hashTag + "#";
+				hashTag = hashTag + "•";
 			}
 			document.getElementsByClassName("hash")[0].innerText = hashTag;
 			// next pascode digit
@@ -69,6 +70,8 @@ function ButtonPressed(e) {
 					document.getElementsByClassName("hash")[0].innerText = "INCORRECT";
 					document.getElementsByClassName("hash")[0].style.color = "red";
 				}
+				document.getElementsByClassName("hash")[0].style.fontSize = "1.2em";
+				document.getElementsByClassName("result")[0].style.fontSize = "0.8em";
 				document.getElementsByClassName("result")[0].style.display = "inline";
 			}
 		}
